@@ -1,0 +1,140 @@
+1. Implement Insertion Sort or Selection Sort recursively.
+
+using System; 
+
+class Rec 
+{ 
+
+	static void insertionSortRec(int []my_arr, int n) 
+	{ 
+
+		if (n <= 1) 
+			return; 
+	
+
+		insertionSortRec(my_arr, n - 1); 
+
+		int last_el = my_arr[n - 1]; 
+		int j = n - 2; 
+
+		while (j >= 0 && my_arr[j] > last_el) 
+		{ 
+			my_arr[j + 1] = my_arr[j]; 
+			j--; 
+		} 
+		my_arr[j + 1] = last_el; 
+	} 
+	
+
+	static void Main() 
+	{ 
+		int []my_arr = {12, 11, 13, 5, 6}; 
+	
+		insertionSortRec(my_arr, my_arr.Length); 
+		
+		for(int i = 0; i < my_arr.Length; i++) 
+		Console.Write(my_arr[i] + " "); 
+	} 
+} 
+
+2. Implement a Custom Queue using either an array, a list, or any other structure you prefer.
+
+using System;
+
+public class CustomQueue<T>
+{
+    private T[] myElements;  // Array to store the queue elements
+    private int myHead;      // Index of the first element in the queue
+    private int myTail;      // Index of the last element in the queue
+    private int mySize;      // Current number of elements in the queue
+    private int myCapacity;  // Maximum capacity of the queue
+
+    public CustomQueue(int capacity)
+    {
+        myCapacity = capacity;
+        myElements = new T[myCapacity];
+        myHead = 0;
+        myTail = -1;
+        mySize = 0;
+    }
+    public void Enqueue(T item)
+    {
+        if (mySize == myCapacity)
+        {
+            throw new InvalidOperationException("Queue is full");
+        }
+
+        myTail = (myTail + 1) % myCapacity;
+        myElements[myTail] = item;
+        mySize++;
+    }
+
+    public T Dequeue()
+    {
+        if (IsEmpty())
+        {
+            throw new InvalidOperationException("Queue is empty");
+        }
+
+        T item = myElements[myHead];
+        myHead = (myHead + 1) % myCapacity;
+        mySize--;
+        return item;
+    }
+
+
+    public T Peek()
+    {
+        if (IsEmpty())
+        {
+            throw new InvalidOperationException("Queue is empty");
+        }
+
+        return myElements[myHead];
+    }
+
+
+    public bool IsEmpty()
+    {
+        return mySize == 0;
+    }
+
+    public bool IsFull()
+    {
+        return mySize == myCapacity;
+    }
+
+
+    public int Count()
+    {
+        return mySize;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        CustomQueue<int> myQueue = new CustomQueue<int>(5);
+
+        myQueue.Enqueue(1);
+        myQueue.Enqueue(2);
+        myQueue.Enqueue(3);
+        myQueue.Enqueue(4);
+        myQueue.Enqueue(5);
+
+        Console.WriteLine("Peek: " + myQueue.Peek());
+
+
+        Console.WriteLine("Dequeue: " + myQueue.Dequeue());
+        Console.WriteLine("Dequeue: " + myQueue.Dequeue());
+
+        Console.WriteLine("IsEmpty: " + myQueue.IsEmpty());
+        Console.WriteLine("Count: " + myQueue.Count());
+
+        myQueue.Enqueue(6);
+        Console.WriteLine("Peek after enqueue: " + myQueue.Peek());
+    }
+}
+
+

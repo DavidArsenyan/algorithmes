@@ -1,0 +1,207 @@
+1. Data structures 
+
+ -- Create a list of integers and add 5 elements to it.
+
+List<int> int_list = new List<int>();
+
+int_list.Add(10);
+int_list.Add(20);
+int_list.Add(30);
+int_list.Add(40);
+int_list.Add(50);
+
+ -- Create a dictionary with string keys and integer values, and add 5 key-value pairs to it.
+
+Dictionary<string, int> dictionary = new Dictionary<string, int>();
+
+dictionary.Add("one", 1);
+dictionary.Add("two", 2);
+dictionary.Add("three", 3);
+dictionary.Add("four", 4);
+dictionary.Add("five", 5);
+
+ -- Create a queue of integers and add 5 elements to it
+
+ Queue<int> my_queue = new Queue<int>();
+
+my_queue.Enqueue(10);
+my_queue.Enqueue(20);
+my_queue.Enqueue(30);
+my_queue.Enqueue(40);
+my_queue.Enqueue(50);
+
+ -- Create a stack of integers and add 5 elements to it.
+
+Stack<int> my_stack = new Stack<int>();
+
+my_stack.Push(10);
+my_stack.Push(20);
+my_stack.Push(30);
+my_stack.Push(40);
+my_stack.Push(50);
+
+2. Operations on Data Structures
+
+List<int> int_list = new List<int> { 10, 20, 30, 40, 50 };
+     
+int sum = 0;
+foreach (int number in int_list)
+        {
+            sum += number;
+        }
+
+Console.WriteLine("Sum of all elements: " + sum);
+
+ -- Calculate and print the sum of all values in the dictionary.
+
+Dictionary<string, int> dictionary = new Dictionary<string, int>
+        {
+            { "One", 1 },
+            { "Two", 2 },
+            { "Three", 3 },
+            { "Four", 4 },
+            { "Five", 5 }
+        };
+
+int sum = 0;
+foreach (int value in dictionary.Values)
+        {
+            sum += value;
+        }
+
+Console.WriteLine("Sum of all values: " + sum);
+
+-- Remove 2 elements from the queue and print the remaining elements.
+
+Queue<int> my_queue = new Queue<int>();
+
+my_queue.Enqueue(10);
+my_queue.Enqueue(20);
+my_queue.Enqueue(30);
+my_queue.Enqueue(40);
+my_queue.Enqueue(50);
+
+my_queue.Dequeue();
+my_queue.Dequeue();
+
+
+Console.WriteLine("Remaining elements in the queue:");
+foreach (int number in my_queue)
+	{
+            Console.WriteLine(number);
+        }
+
+ -- Remove 2 elements from the stack and print the remaining elements.
+
+ Stack<int> my_stack = new Stack<int>();
+
+
+my_stack.Push(10);
+my_stack.Push(20);
+my_stack.Push(30);
+my_stack.Push(40);
+my_stack.Push(50);
+
+
+my_stack.Pop();
+my_stack.Pop();
+
+Console.WriteLine("Remaining elements in the stack:");
+foreach (int number in my_stack)
+        {
+            Console.WriteLine(number);
+        }
+
+3. Additional Tasks
+
+ -- Print all elements of the list.
+
+List<int> my_list = new List<int> { 10, 20, 30, 40, 50 };
+
+Console.WriteLine("Elements in the list:");
+
+
+foreach (int number in my_list)
+        {
+            Console.WriteLine(number);
+        }
+ -- From a three-digit number (e.g., 124), print the largest digit.
+
+int number = 124;
+
+if (number < 100 || number > 999)
+
+        {
+            Console.WriteLine("The number is not a three-digit number.");
+            return;
+        }
+
+string numberString = number.ToString();
+
+char largestDigit = numberString[0];
+
+foreach (char digit in numberString)
+        {
+            if (digit > largestDigit)
+            {
+                largestDigit = digit;
+            }
+        }
+Console.WriteLine("The largest digit is: " + largestDigit);
+
+-- From a three-digit number (e.g., 124), print the smallest digit.
+
+int number = 124;
+
+if (number < 100 || number > 999)
+        {
+            Console.WriteLine("The number is not a three-digit number.");
+            return;
+        }
+
+string numberString = number.ToString();
+
+char smallestDigit = numberString[0];
+
+foreach (char digit in numberString)
+        {
+            if (digit < smallestDigit)
+            {
+                smallestDigit = digit;
+            }
+        }
+
+        // Print the smallest digit
+        Console.WriteLine("The smallest digit is: " + smallestDigit);
+
+ -- From an array, find all even values and print their sum
+
+int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+int sum = 0;
+
+foreach (int number in numbers)
+        {
+
+            if (number % 2 == 0)
+            {
+
+                sum += number;
+            }
+        }
+
+        Console.WriteLine("Sum of all even values: " + sum);
+
+ -- Calculate and print the average of all elements in the array.
+
+int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+int sum = 0;
+foreach (int number in numbers)
+        {
+            sum += number;
+        }
+
+double average = (double)sum / numbers.Length;
+
+Console.WriteLine("Average of all elements: " + average);
